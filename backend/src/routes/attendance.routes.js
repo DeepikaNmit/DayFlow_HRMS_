@@ -1,0 +1,1 @@
+const r=require('express').Router(),c=require('../controllers/attendance.controller'),{auth,roles}=require('../middleware/auth.middleware');r.get('/mine',auth,c.mine);r.get('/all',auth,roles('HR'),c.all);r.post('/check-in',auth,roles('EMPLOYEE','HR'),c.checkIn);r.post('/check-out',auth,roles('EMPLOYEE','HR'),c.checkOut);module.exports=r;

@@ -1,0 +1,1 @@
+const r=require('express').Router(),c=require('../controllers/auth.controller');const {auth}=require('../middleware/auth.middleware');r.post('/register',c.register);r.post('/login',c.login);r.get('/me',auth,c.me);module.exports=r;

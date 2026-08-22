@@ -1,0 +1,4 @@
+const db=require('../config/db');
+exports.mine=async(req,res,next)=>{try{const r=await db.query('SELECT e.id,e.name,e.basic_salary,e.allowances,e.deductions,(e.basic_salary+e.allowances-e.deductions) net_salary FROM employees e WHERE e.user_id=$1',[req.user.id]);res.json({success:true,data:r.rows[0]||null})}catch(e){next(e)}};
+exports.all=async(req,res,next)=>{try{const r=await db.query('SELECT e.id,e.employee_id,e.name,e.department,e.basic_salary,e.allowances,e.deductions,(e.basic_salary+e.allowances-e.deductions) net_salary FROM employees e ORDER BY e.name');res.json({success:true,data:r.rows})}catch(e){next(e)}};
+exports.update=async(req,res,next)=>{try{const r=await db.query('UPDATE employees SET basic_salary=$1,allowances=$2,deductions=$3,updated_at=NOW() WHERE id=$4 RETURNING *',[req.body.basicSalary,req.body.allowances||0,req.body.deductions||0,req.params.id]);res.json({success:true,data:r.rows[0]})}catch(e){next(e)}};

@@ -1,0 +1,1 @@
+import {Bell} from 'lucide-react';import {useAuth} from '../../context/AuthContext';export default function Header(){const {user}=useAuth();return <header><div><h1>Good morning, {user?.email?.split('@')[0]}</h1><p>Here’s your Dayflow workspace.</p></div><div className="header-user"><Bell size={20}/><span>{user?.role==='HR'?'HR Officer':'Employee'}</span></div></header>}

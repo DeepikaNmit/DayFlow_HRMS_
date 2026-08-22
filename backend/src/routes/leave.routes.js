@@ -1,0 +1,1 @@
+const r=require('express').Router(),c=require('../controllers/leave.controller'),{auth,roles}=require('../middleware/auth.middleware');r.get('/mine',auth,c.mine);r.get('/',auth,roles('HR'),c.all);r.post('/',auth,roles('EMPLOYEE'),c.create);r.put('/:id/:action',auth,roles('HR'),c.decide);module.exports=r;

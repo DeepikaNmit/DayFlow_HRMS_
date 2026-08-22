@@ -1,0 +1,1 @@
+export default function DashboardCard({title,value,icon:Icon,sub}){return <div className="dash-card"><div className="icon-box"><Icon size={21}/></div><div><p>{title}</p><h2>{value}</h2>{sub&&<small>{sub}</small>}</div></div>}

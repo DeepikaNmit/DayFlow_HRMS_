@@ -1,0 +1,1 @@
+const r=require('express').Router(),c=require('../controllers/employee.controller'),{auth,roles}=require('../middleware/auth.middleware');r.get('/',auth,roles('HR'),c.list);r.get('/:id',auth,c.get);r.put('/:id',auth,roles('HR'),c.update);module.exports=r;
