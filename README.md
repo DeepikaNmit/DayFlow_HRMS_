@@ -13,7 +13,7 @@ A full-stack Human Resource Management System using React/Vite, Node.js/Express,
 4. Copy `backend/.env.example` to `backend/.env` and update DATABASE_URL/JWT_SECRET.
 5. `cd backend && npm install && npm run dev`
 6. In another terminal: `cd frontend && npm install && npm run dev`
-7. Open http://localhost:5173
+
 
 ## Stack
 React + Vite + Tailwind-style custom CSS, Node/Express, PostgreSQL, JWT, bcrypt, Recharts, Python.
